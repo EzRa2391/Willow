@@ -109,8 +109,8 @@ def piege(gateau, inventaire, willow, adjacent, player):
         trap = int(input("Dans quelle salle souhaitez vous posez un gateau ? "))
         if trap in gateau:
             print("Il y a déjà un gâteau dans cette salle")
-            return piege(gateau, inventaire)
-        else:
+            return piege(gateau, inventaire, willow, adjacent, player)
+        elif trap in l_salles :
             gateau.append(trap)
             inventaire = inventaire-1
             print("Attention, Le Willow se réveille !")
@@ -135,7 +135,6 @@ def piege(gateau, inventaire, willow, adjacent, player):
                 else :
                     print("Le Willow ne fait rien et se rendort !")
             return (gateau,inventaire)
-
 
 
 # fonction pour récapituler la situation du joueur dans le labyrinthe
@@ -210,6 +209,7 @@ def menu2():
         elif rep==2:
             print("Merci et au revoir")
             break
-
+        else :
+            print("Erreur de saisie")
 # Appel de la fonction menu2() : lancement du menu principal.
 menu2()
